@@ -15,7 +15,7 @@ namespace AlorTest
         public async Task Start()
         {
             string url = "https://scsanctions.un.org/resources/xml/en/consolidated.xml";
-            await _httpService.Get(url);
+            await _httpService.GetFile(url);
         }
     }
 }

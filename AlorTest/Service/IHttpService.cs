@@ -1,8 +1,9 @@
 ﻿
-namespace AlorTest.Service
+using AlorTest.Model;
+
+namespace AlorTest.Service;
+
+public interface IHttpService
 {
-    public interface IHttpService
-    {
-        Task Get(string url);
-    }
+    Task<UploadFileModel> GetFile(string url);
 }
