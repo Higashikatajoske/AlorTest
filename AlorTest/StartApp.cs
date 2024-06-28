@@ -1,6 +1,7 @@
 ﻿
 using AlorTest.Model;
 using AlorTest.Service;
+using System.Xml.Serialization;
 
 namespace AlorTest
 {
@@ -19,7 +20,10 @@ namespace AlorTest
         {
             string url = "https://scsanctions.un.org/resources/xml/en/consolidated.xml";
             UploadFileModel model = await _httpService.GetFile(url);
-            await _fileService.SaveFile(model);
+            //await _fileService.SaveFile(model);
+            XmlSerializer xmlSerializer = new XmlSerializer(typeof(ConsolidatedList));
+
+            ConsolidatedList consolidatedList = xmlSerializer.Deserialize(model.FileMemoryStream) as ConsolidatedList;
 
         }
     }
