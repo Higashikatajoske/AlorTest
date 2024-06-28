@@ -1,7 +1,9 @@
 ﻿
-namespace AlorTest.Service
+using AlorTest.Model;
+
+namespace AlorTest.Service;
+
+public interface IFileService
 {
-    public interface IFileService
-    {
-    }
+    Task<string> SaveFile(UploadFileModel fileModel);
 }

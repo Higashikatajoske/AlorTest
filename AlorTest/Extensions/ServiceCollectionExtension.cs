@@ -27,6 +27,7 @@ public static class ServiceCollectionExtension
         serviceCollection.AddHttpClient(ClientName);
         serviceCollection.AddScoped(s => s.GetRequiredService<IHttpClientFactory>().CreateClient(ClientName));
         serviceCollection.AddScoped<IHttpService, HttpService>();
+        serviceCollection.AddScoped<IFileService, FileService>();
         serviceCollection.AddTransient<StartApp>();
         return serviceCollection;
     }
