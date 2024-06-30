@@ -36,8 +36,8 @@ public static class ServiceCollectionExtension
         serviceCollection.AddScoped(s => s.GetRequiredService<IHttpClientFactory>().CreateClient(ClientName));
         serviceCollection.AddScoped<IHttpService, HttpService>();
         serviceCollection.AddScoped<IFileService, FileService>();
+        serviceCollection.AddScoped<IConsoleService,  ConsoleService>();
         serviceCollection.AddScoped<IFileRepository, FileRepository>();
-        serviceCollection.AddTransient<StartApp>();
         return serviceCollection;
     }
 }

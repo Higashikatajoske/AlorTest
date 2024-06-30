@@ -1,5 +1,6 @@
 ﻿using AlorTest;
 using AlorTest.Extensions;
+using AlorTest.Service;
 using Microsoft.Extensions.DependencyInjection;
 
 ServiceProvider serviceProvider = new ServiceCollection()
@@ -7,10 +8,10 @@ ServiceProvider serviceProvider = new ServiceCollection()
     .AddConfig()
     .BuildServiceProvider();
 
-StartApp? app = serviceProvider.GetService<StartApp>();
+IConsoleService? app = serviceProvider.GetService<IConsoleService>();
 if (app != null)
 {
-    await app.Start();
+    await app.StartProgram();
 }
 
 Console.ReadKey();
