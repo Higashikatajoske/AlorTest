@@ -25,7 +25,8 @@ public class FileService: IFileService
             byte[] memoryBuffer = new byte[fileModelStream.Length];
             fileModelStream.Position = 0;
             await fileModelStream.ReadAsync(memoryBuffer, 0, memoryBuffer.Length);
-            string fileName = CreateFileName(uploadFileModel.Extension);
+            string fileHash = GetHashFile(memoryBuffer);
+            string fileName = CreateFileName(fileHash, uploadFileModel.Extension);
             string filepath = Path.Combine(_storageOptions.FileStoragePath, fileName);
 
             using (FileStream fileStream = new FileStream(filepath, FileMode.Create))
@@ -42,6 +43,24 @@ public class FileService: IFileService
         return file;
     }
 
+    private string GetHashFile(byte[] fileBytes)
+    {
+        byte[] hashValue = MD5.HashData(fileBytes);
+        return Convert.ToHexString(hashValue);
+    }
+
+    public async Task<string> GetFile(string fileName)
+    {
+        byte[]? memoryBuffer = null!;
+        string filepath = Path.Combine(_storageOptions.FileStoragePath, fileName);
+        using (FileStream fileStream = new FileStream(filepath, FileMode.Open))
+        {
+            memoryBuffer = new byte[fileStream.Length];
+            await fileStream.ReadAsync(memoryBuffer, 0, memoryBuffer.Length);
+        }
+        return Encoding.UTF8.GetString(memoryBuffer);
+    }
+
     private string ByteArrayToString(byte[] arrInput)
     {
         StringBuilder sOutput = new StringBuilder(arrInput.Length);
@@ -52,13 +71,13 @@ public class FileService: IFileService
         return sOutput.ToString();
     }
 
-    private string CreateFileName(string fileType)
+    private string CreateFileName(string fileHash, string fileType)
     {
         string fileName;
         switch(fileType)
         {
             case "text/xml":
-                fileName = "XmlFile.xml";
+                fileName = fileHash + "XmlFile.xml";
                 break;
             default:
                 fileName = "File";

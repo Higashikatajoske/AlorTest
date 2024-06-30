@@ -36,6 +36,7 @@ public class ConsoleService: IConsoleService
                     await ShowFileList();
                     break;
                 case 3:
+                    await FindFile();
                     break;
                 case 0:
                     isFinished = true;
@@ -87,5 +88,20 @@ public class ConsoleService: IConsoleService
             Console.WriteLine($"{file}");
         }
         Console.WriteLine();
+    }
+
+    private async Task FindFile()
+    {
+        Console.WriteLine("Напишите название файла");
+        string? fileName = Console.ReadLine();
+        if (!fileName.IsNullOrEmpty())
+        {
+            string b = await _fileService.GetFile(fileName!);
+
+        }
+        else
+        {
+            Console.WriteLine("Пустая строка");
+        }
     }
 }
