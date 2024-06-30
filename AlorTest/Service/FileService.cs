@@ -1,5 +1,6 @@
 ﻿using AlorTest.Configure;
 using AlorTest.Model;
+using AlorTest.Repository.DBModels;
 using Microsoft.Extensions.Options;
 using System.Security.Cryptography;
 using System.Text;
@@ -15,23 +16,30 @@ public class FileService: IFileService
         _storageOptions = storageOptions.Value;  
     }
 
-    public async Task<string> SaveFile(UploadFileModel fileModel)
+    public async Task<DownloadedFile?> SaveFile(UploadFileModel uploadFileModel)
     {
-        Stream fileModelStream = fileModel.FileMemoryStream;
+        DownloadedFile? file = null;
+        Stream fileModelStream = uploadFileModel.FileMemoryStream;
         if (fileModelStream.CanSeek && fileModelStream.CanRead)
         {
             byte[] memoryBuffer = new byte[fileModelStream.Length];
             fileModelStream.Position = 0;
             await fileModelStream.ReadAsync(memoryBuffer, 0, memoryBuffer.Length);
-            string fileName = CreateFileName(fileModel.Extension);
+            string fileName = CreateFileName(uploadFileModel.Extension);
             string filepath = Path.Combine(_storageOptions.FileStoragePath, fileName);
 
             using (FileStream fileStream = new FileStream(filepath, FileMode.Create))
             {
                 fileStream.Write(memoryBuffer, 0, memoryBuffer.Length);
             }
+
+            file = new DownloadedFile()
+            {
+                FileName = fileName,
+                FileType = uploadFileModel.Extension
+            };
         }
-        return string.Empty;
+        return file;
     }
 
     private string ByteArrayToString(byte[] arrInput)
@@ -46,7 +54,7 @@ public class FileService: IFileService
 
     private string CreateFileName(string fileType)
     {
-        string fileName = string.Empty;
+        string fileName;
         switch(fileType)
         {
             case "text/xml":

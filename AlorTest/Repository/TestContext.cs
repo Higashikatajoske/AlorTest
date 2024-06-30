@@ -16,14 +16,16 @@ public partial class TestContext : DbContext
     {
     }
 
-    public virtual DbSet<DBModels.File> Files { get; set; }
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {                                                        
 
-    public virtual DbSet<MigrationHistory> MigrationHistories { get; set; }
+    }
+
+    public virtual DbSet<DownloadedFile> DownloadedFiles { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-
-        modelBuilder.Entity<DBModels.File>(entity =>
+        modelBuilder.Entity<DownloadedFile>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PK__Files__3213E83F9A72F920");
 
@@ -34,17 +36,6 @@ public partial class TestContext : DbContext
             entity.Property(e => e.FileType)
                 .HasMaxLength(10)
                 .IsUnicode(false);
-        });
-
-        modelBuilder.Entity<MigrationHistory>(entity =>
-        {
-            entity.HasKey(e => new { e.MigrationId, e.ContextKey }).HasName("PK_dbo.__MigrationHistory");
-
-            entity.ToTable("__MigrationHistory");
-
-            entity.Property(e => e.MigrationId).HasMaxLength(150);
-            entity.Property(e => e.ContextKey).HasMaxLength(300);
-            entity.Property(e => e.ProductVersion).HasMaxLength(32);
         });
 
         OnModelCreatingPartial(modelBuilder);

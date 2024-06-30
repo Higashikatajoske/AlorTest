@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-
+﻿
 namespace AlorTest.Repository.DBModels;
 
-public partial class File
+public partial class DownloadedFile
 {
     public int Id { get; set; }
 

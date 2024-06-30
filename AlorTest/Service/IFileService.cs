@@ -1,9 +1,10 @@
 ﻿
 using AlorTest.Model;
+using AlorTest.Repository.DBModels;
 
 namespace AlorTest.Service;
 
 public interface IFileService
 {
-    Task<string> SaveFile(UploadFileModel fileModel);
+    Task<DownloadedFile?> SaveFile(UploadFileModel uploadFileModel);
 }
