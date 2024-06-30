@@ -2,8 +2,8 @@
 using AlorTest.Model;
 using AlorTest.Repository.DBModels;
 using Microsoft.Extensions.Options;
+using Microsoft.VisualBasic.FileIO;
 using System.Security.Cryptography;
-using System.Text;
 
 namespace AlorTest.Service;
 
@@ -37,7 +37,7 @@ public class FileService: IFileService
             file = new DownloadedFile()
             {
                 FileName = fileName,
-                FileType = uploadFileModel.Extension
+                FileType = GetFileExtension(uploadFileModel.Extension)
             };
         }
         return file;
@@ -49,26 +49,19 @@ public class FileService: IFileService
         return Convert.ToHexString(hashValue);
     }
 
-    public async Task<MemoryStream?> GetFile(string fileName)
+    public FileStream? GetFile(string fileName)
     {
-        MemoryStream memoryStream = new MemoryStream();
-        string filepath = Path.Combine(_storageOptions.FileStoragePath, fileName);
-        using (FileStream fileStream = new FileStream(filepath, FileMode.Open))
+        try
         {
-            await fileStream.CopyToAsync(memoryStream);
-            memoryStream.Position = 0;
+            string filepath = Path.Combine(_storageOptions.FileStoragePath, fileName);
+            FileStream fileStream = new FileStream(filepath, FileMode.Open);
+            fileStream.Position = 0;
+            return fileStream;
         }
-        return memoryStream;
-    }
-
-    private string ByteArrayToString(byte[] arrInput)
-    {
-        StringBuilder sOutput = new StringBuilder(arrInput.Length);
-        for (int index = 0; index < arrInput.Length; index++)
+        catch
         {
-            sOutput.Append(arrInput[index].ToString("X2"));
+            return null;
         }
-        return sOutput.ToString();
     }
 
     private string CreateFileName(string fileHash, string fileType)
@@ -84,5 +77,20 @@ public class FileService: IFileService
                 break;
         }
         return fileName;
+    }
+
+    private string GetFileExtension(string contentType)
+    {
+        string extension;
+        switch (contentType)
+        {
+            case "text/xml":
+                extension = "xml";
+                break;
+            default:
+                extension = string.Empty;
+                break;
+        }
+        return extension;
     }
 }

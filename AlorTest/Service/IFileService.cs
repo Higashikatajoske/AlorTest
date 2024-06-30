@@ -8,5 +8,5 @@ public interface IFileService
 {
     Task<DownloadedFile?> SaveFile(UploadFileModel uploadFileModel);
 
-    Task<MemoryStream> GetFile(string fileStream);
+    FileStream? GetFile(string fileName);
 }

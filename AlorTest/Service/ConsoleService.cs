@@ -41,7 +41,7 @@ public class ConsoleService: IConsoleService
                         await ShowFileList();
                         break;
                     case 3:
-                        await FindFile();
+                        FindFile();
                         break;
                     case 0:
                         isFinished = true;
@@ -80,7 +80,7 @@ public class ConsoleService: IConsoleService
             }
         }
         else
-            Console.WriteLine("Строка пуста");
+            Console.WriteLine("Строка пуста.\n");
 
     }
 
@@ -102,13 +102,40 @@ public class ConsoleService: IConsoleService
         string? fileName = Console.ReadLine();
         if (!fileName.IsNullOrEmpty())
         {
-            MemoryStream stream = await _fileService.GetFile(fileName!);
-            XmlSerializer xmlSerializer = new XmlSerializer(typeof(ConsolidatedList));
-            ConsolidatedList? consolidatedList = xmlSerializer.Deserialize(stream) as ConsolidatedList; 
+            FileStream? stream = _fileService.GetFile(fileName!);
+            if (stream == null)
+            {
+                Console.WriteLine("Произошла ошибка с поиском файла. Файл не найден.\n");
+                return;
+            }
+            
+            DownloadedFile? fileInfo = await _fileRepository.GetFile(fileName!);
+
+            if (fileInfo == null)
+            {
+                Console.WriteLine("Информация о файле не найден. Приложение может привести к ошибке");
+                return;
+            }
+
+            if (fileInfo.FileType != "xml")
+            {
+                Console.WriteLine("Файл не является xml файлом. Он не может парситься");
+                return;
+            }
+
+            try
+            {
+                XmlSerializer xmlSerializer = new XmlSerializer(typeof(ConsolidatedList));
+                ConsolidatedList? consolidatedList = xmlSerializer.Deserialize(stream) as ConsolidatedList;
+            }
+            catch
+            {
+                Console.WriteLine("Произошла ошибка парсинка. Этот xml-файл не подходит для этого парсинга");
+            }
         }
         else
         {
-            Console.WriteLine("Пустая строка");
+            Console.WriteLine("Пустая строка.\n");
         }
     }
 }
