@@ -6,4 +6,6 @@ namespace AlorTest.Repository;
 public interface IFileRepository
 {
     void SaveFile(DownloadedFile file);
+
+    Task<List<string>> GetFileList();
 }

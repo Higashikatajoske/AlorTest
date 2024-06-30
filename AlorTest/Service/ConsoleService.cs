@@ -21,18 +21,27 @@ public class ConsoleService: IConsoleService
 
     public async Task StartProgram()
     {
-        CreateStartView();
-        int choiceNumber = int.Parse(Console.ReadLine());
-
-        switch(choiceNumber)
+        bool isFinished = false;
+        while (!isFinished)
         {
-            case 1:
-                await DownloadFileView();
-                break;
-            case 2:
-                break;
-            case 3:
-                break;
+            CreateStartView();
+            int choiceNumber = int.Parse(Console.ReadLine());
+
+            switch (choiceNumber)
+            {
+                case 1:
+                    await DownloadFileView();
+                    break;
+                case 2:
+                    await ShowFileList();
+                    break;
+                case 3:
+                    break;
+                case 0:
+                    isFinished = true;
+                    Console.WriteLine("Выход");
+                    break;
+            }
         }
     }
 
@@ -41,7 +50,8 @@ public class ConsoleService: IConsoleService
         Console.WriteLine("Выберите действие");
         Console.WriteLine("1.Скачать файл по ссылке");
         Console.WriteLine("2.Показать список загруженных файлов");
-        Console.WriteLine("3.Распарсить xml-файлов");
+        Console.WriteLine("3.Распарсить xml-файл");
+        Console.WriteLine("0.Выход из программы\n");
     }
 
     private async Task DownloadFileView()
@@ -50,16 +60,32 @@ public class ConsoleService: IConsoleService
         string? url = Console.ReadLine();
         if (!url.IsNullOrEmpty())
         {
+            Console.WriteLine("Идёт загрузка файла");
             UploadFileModel uploadFileModel = await _httpService.GetFile(url!);
+            Console.WriteLine($"Файл типа {uploadFileModel.Extension} загружен");
             DownloadedFile? downloadedFile = await _fileService.SaveFile(uploadFileModel);
 
             if (downloadedFile != null )
             {
-               _fileRepository.SaveFile(downloadedFile);
+                Console.WriteLine($"Файл с именем {downloadedFile.FileName} записан на компьютер");
+                _fileRepository.SaveFile(downloadedFile);
+                Console.WriteLine($"Информация о файле записана в БД");
             }
         }
         else
             Console.WriteLine("Строка пуста");
 
+    }
+
+    private async Task ShowFileList()
+    {
+        Console.WriteLine("Список файлов");
+        List<string> fileList = await _fileRepository.GetFileList();
+
+        foreach (string file in fileList)
+        {
+            Console.WriteLine($"{file}");
+        }
+        Console.WriteLine();
     }
 }
