@@ -8,8 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System.Xml.Serialization;
-
 namespace AlorTest.Model;
 
 // 
@@ -46,59 +44,12 @@ public partial class Value {
 [System.Diagnostics.DebuggerStepThroughAttribute()]
 [System.ComponentModel.DesignerCategoryAttribute("code")]
 [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
-[System.Xml.Serialization.XmlRootAttribute(Namespace="", IsNullable=false)]
-public partial class ListType {
-    
-    private string ValueField;
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public string ListTypeValue {
-        get {
-            return this.ValueField;
-        }
-        set {
-            this.ValueField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.8.3928.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
-[System.Xml.Serialization.XmlRootAttribute(Namespace="", IsNullable=false)]
-public partial class LastDayUpdated {
-    
-    private Value[] ValueField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute("VALUE", IsNullable=true)]
-    public Value[] VALUE {
-        get {
-            return this.ValueField;
-        }
-        set {
-            this.ValueField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.8.3928.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
 [System.Xml.Serialization.XmlRootAttribute(Namespace="", IsNullable=false, ElementName = "CONSOLIDATED_LIST")]
 public partial class ConsolidatedList {
     
     private Individual[] _individualsList;
     
-    //private Entity[] _entitiesList;
-    
-    //private string dateGeneratedField;
+    private Entity[] _entitiesList;
     
     /// <remarks/>
     [System.Xml.Serialization.XmlArrayAttribute("INDIVIDUALS",Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
@@ -111,29 +62,21 @@ public partial class ConsolidatedList {
             this._individualsList = value;
         }
     }
-    
-    ///// <remarks/>
-    //[System.Xml.Serialization.XmlArrayAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    //[System.Xml.Serialization.XmlArrayItemAttribute("ENTITY", typeof(Entity), Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
-    //public Entity[] EntitiesList {
-    //    get {
-    //        return this._entitiesList;
-    //    }
-    //    set {
-    //        this._entitiesList = value;
-    //    }
-    //}
-    
-    ///// <remarks/>
-    //[System.Xml.Serialization.XmlAttributeAttribute()]
-    //public string DateGenerated {
-    //    get {
-    //        return this.dateGeneratedField;
-    //    }
-    //    set {
-    //        this.dateGeneratedField = value;
-    //    }
-    //}
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlArrayAttribute("ENTITIES", Form = System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    [System.Xml.Serialization.XmlArrayItemAttribute("ENTITY", typeof(Entity), Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = false)]
+    public Entity[] EntitiesList
+    {
+        get
+        {
+            return this._entitiesList;
+        }
+        set
+        {
+            this._entitiesList = value;
+        }
+    }
 }
 
 /// <remarks/>
@@ -921,185 +864,188 @@ public partial class IndividualDocument {
 [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
 public partial class Entity {
     
-    private string dATAIDField;
+    private string _dataId;
     
-    private string vERSIONNUMField;
+    private string _versionNum;
     
-    private string fIRST_NAMEField;
+    private string _firstName;
     
-    private string uN_LIST_TYPEField;
+    private string _unListType;
     
-    private string rEFERENCE_NUMBERField;
+    private string _referenceNumber;
     
-    private string lISTED_ONField;
+    private string _listedOn;
     
-    private string nAME_ORIGINAL_SCRIPTField;
+    private string _nameOriginalScript;
     
-    private string cOMMENTS1Field;
+    private string _comments1;
     
-    private string sORT_KEYField;
+    private string _sortKey;
     
-    private string sORT_KEY_LAST_MODField;
+    private string _sortKeyLastModified;
     
-    private ListType[] lIST_TYPEField;
+    private Value[] _listType;
     
-    private Value[][] lAST_DAY_UPDATEDField;
+    private Value[] _lastDayUpdated;
     
-    private CONSOLIDATED_LISTENTITIESENTITYENTITY_ALIAS[] eNTITY_ALIASField;
+    private EntityAlias[] _entityAlias;
     
-    private CONSOLIDATED_LISTENTITIESENTITYENTITY_ADDRESS[] eNTITY_ADDRESSField;
+    private EntityAddress[] _entityAddress;
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public string DATAID {
+    [System.Xml.Serialization.XmlElementAttribute("DATAID", Form =System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public string DataId {
         get {
-            return this.dATAIDField;
+            return this._dataId;
         }
         set {
-            this.dATAIDField = value;
+            this._dataId = value;
         }
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public string VERSIONNUM {
+    [System.Xml.Serialization.XmlElementAttribute("VERSIONNUM", Form =System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public string VersionNum {
         get {
-            return this.vERSIONNUMField;
+            return this._versionNum;
         }
         set {
-            this.vERSIONNUMField = value;
+            this._versionNum = value;
         }
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public string FIRST_NAME {
+    [System.Xml.Serialization.XmlElementAttribute("FIRST_NAME", Form =System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public string FirstName {
         get {
-            return this.fIRST_NAMEField;
+            return this._firstName;
         }
         set {
-            this.fIRST_NAMEField = value;
+            this._firstName = value;
         }
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public string UN_LIST_TYPE {
+    [System.Xml.Serialization.XmlElementAttribute("UN_LIST_TYPE", Form =System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public string UnListType {
         get {
-            return this.uN_LIST_TYPEField;
+            return this._unListType;
         }
         set {
-            this.uN_LIST_TYPEField = value;
+            this._unListType = value;
         }
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public string REFERENCE_NUMBER {
+    [System.Xml.Serialization.XmlElementAttribute("REFERENCE_NUMBER", Form =System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public string ReferenceNumber {
         get {
-            return this.rEFERENCE_NUMBERField;
+            return this._referenceNumber;
         }
         set {
-            this.rEFERENCE_NUMBERField = value;
+            this._referenceNumber = value;
         }
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public string LISTED_ON {
+    [System.Xml.Serialization.XmlElementAttribute("LISTED_ON", Form =System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public string ListedOn {
         get {
-            return this.lISTED_ONField;
+            return this._listedOn;
         }
         set {
-            this.lISTED_ONField = value;
+            this._listedOn = value;
         }
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public string NAME_ORIGINAL_SCRIPT {
+    [System.Xml.Serialization.XmlElementAttribute("NAME_ORIGINAL_SCRIPT", Form =System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public string NameOriginalScript {
         get {
-            return this.nAME_ORIGINAL_SCRIPTField;
+            return this._nameOriginalScript;
         }
         set {
-            this.nAME_ORIGINAL_SCRIPTField = value;
+            this._nameOriginalScript = value;
         }
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public string COMMENTS1 {
+    [System.Xml.Serialization.XmlElementAttribute("COMMENTS1", Form =System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public string Comments1 {
         get {
-            return this.cOMMENTS1Field;
+            return this._comments1;
         }
         set {
-            this.cOMMENTS1Field = value;
+            this._comments1 = value;
         }
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public string SORT_KEY {
+    [System.Xml.Serialization.XmlElementAttribute("SORT_KEY", Form =System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public string SortKey {
         get {
-            return this.sORT_KEYField;
+            return this._sortKey;
         }
         set {
-            this.sORT_KEYField = value;
+            this._sortKey = value;
         }
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public string SORT_KEY_LAST_MOD {
+    [System.Xml.Serialization.XmlElementAttribute("SORT_KEY_LAST_MOD", Form =System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public string SortKeyLastMod {
         get {
-            return this.sORT_KEY_LAST_MODField;
+            return this._sortKeyLastModified;
         }
         set {
-            this.sORT_KEY_LAST_MODField = value;
+            this._sortKeyLastModified = value;
         }
     }
-    
+
     /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute("LIST_TYPE")]
-    public ListType[] LIST_TYPE {
+    /// 
+    [System.Xml.Serialization.XmlArrayAttribute("LIST_TYPE", Form = System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    [System.Xml.Serialization.XmlArrayItemAttribute("VALUE", typeof(Value))]
+    public Value[] ListType {
         get {
-            return this.lIST_TYPEField;
+            return this._listType;
         }
         set {
-            this.lIST_TYPEField = value;
+            this._listType = value;
         }
     }
     
     /// <remarks/>
     [System.Xml.Serialization.XmlArrayItemAttribute("VALUE", typeof(Value))]
-    public Value[][] LAST_DAY_UPDATED {
+    [System.Xml.Serialization.XmlArrayAttribute("LAST_DAY_UPDATED", Form = System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public Value[] LastDayUpdated {
         get {
-            return this.lAST_DAY_UPDATEDField;
+            return this._lastDayUpdated;
         }
         set {
-            this.lAST_DAY_UPDATEDField = value;
+            this._lastDayUpdated = value;
         }
     }
     
     /// <remarks/>
     [System.Xml.Serialization.XmlElementAttribute("ENTITY_ALIAS", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public CONSOLIDATED_LISTENTITIESENTITYENTITY_ALIAS[] ENTITY_ALIAS {
+    public EntityAlias[] EntityAlias {
         get {
-            return this.eNTITY_ALIASField;
+            return this._entityAlias;
         }
         set {
-            this.eNTITY_ALIASField = value;
+            this._entityAlias = value;
         }
     }
     
     /// <remarks/>
     [System.Xml.Serialization.XmlElementAttribute("ENTITY_ADDRESS", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public CONSOLIDATED_LISTENTITIESENTITYENTITY_ADDRESS[] ENTITY_ADDRESS {
+    public EntityAddress[] EntityAddress {
         get {
-            return this.eNTITY_ADDRESSField;
+            return this._entityAddress;
         }
         set {
-            this.eNTITY_ADDRESSField = value;
+            this._entityAddress = value;
         }
     }
 }
@@ -1110,44 +1056,44 @@ public partial class Entity {
 [System.Diagnostics.DebuggerStepThroughAttribute()]
 [System.ComponentModel.DesignerCategoryAttribute("code")]
 [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
-public partial class CONSOLIDATED_LISTENTITIESENTITYENTITY_ALIAS {
+public partial class EntityAlias {
     
-    private string qUALITYField;
+    private string _quality;
     
-    private string aLIAS_NAMEField;
+    private string _aliasName;
     
-    private string nOTEField;
+    private string _note;
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public string QUALITY {
+    [System.Xml.Serialization.XmlElementAttribute("QUALITY", Form =System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public string Quality {
         get {
-            return this.qUALITYField;
+            return this._quality;
         }
         set {
-            this.qUALITYField = value;
+            this._quality = value;
         }
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public string ALIAS_NAME {
+    [System.Xml.Serialization.XmlElementAttribute("ALIAS_NAME", Form =System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public string AliasName {
         get {
-            return this.aLIAS_NAMEField;
+            return this._aliasName;
         }
         set {
-            this.aLIAS_NAMEField = value;
+            this._aliasName = value;
         }
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public string NOTE {
+    [System.Xml.Serialization.XmlElementAttribute("NOTE", Form =System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public string Note {
         get {
-            return this.nOTEField;
+            return this._note;
         }
         set {
-            this.nOTEField = value;
+            this._note = value;
         }
     }
 }
@@ -1158,83 +1104,83 @@ public partial class CONSOLIDATED_LISTENTITIESENTITYENTITY_ALIAS {
 [System.Diagnostics.DebuggerStepThroughAttribute()]
 [System.ComponentModel.DesignerCategoryAttribute("code")]
 [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
-public partial class CONSOLIDATED_LISTENTITIESENTITYENTITY_ADDRESS {
+public partial class EntityAddress {
     
-    private string sTREETField;
+    private string _street;
     
-    private string cITYField;
+    private string _city;
     
-    private string sTATE_PROVINCEField;
+    private string _stateProvince;
     
-    private string zIP_CODEField;
+    private string _zipCode;
     
-    private string cOUNTRYField;
+    private string _country;
     
-    private string nOTEField;
+    private string _note;
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public string STREET {
+    [System.Xml.Serialization.XmlElementAttribute("STREET", Form =System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public string Street {
         get {
-            return this.sTREETField;
+            return this._street;
         }
         set {
-            this.sTREETField = value;
+            this._street = value;
         }
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public string CITY {
+    [System.Xml.Serialization.XmlElementAttribute("CITY", Form =System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public string City {
         get {
-            return this.cITYField;
+            return this._city;
         }
         set {
-            this.cITYField = value;
+            this._city = value;
         }
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public string STATE_PROVINCE {
+    [System.Xml.Serialization.XmlElementAttribute("STATE_PROVINCE", Form =System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public string StateProvince {
         get {
-            return this.sTATE_PROVINCEField;
+            return this._stateProvince;
         }
         set {
-            this.sTATE_PROVINCEField = value;
+            this._stateProvince = value;
         }
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public string ZIP_CODE {
+    [System.Xml.Serialization.XmlElementAttribute("ZIP_CODE", Form =System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public string ZipCode {
         get {
-            return this.zIP_CODEField;
+            return this._zipCode;
         }
         set {
-            this.zIP_CODEField = value;
+            this._zipCode = value;
         }
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public string COUNTRY {
+    [System.Xml.Serialization.XmlElementAttribute("COUNTRY", Form =System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public string Country {
         get {
-            return this.cOUNTRYField;
+            return this._country;
         }
         set {
-            this.cOUNTRYField = value;
+            this._country = value;
         }
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public string NOTE {
+    [System.Xml.Serialization.XmlElementAttribute("NOTE", Form =System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public string Note {
         get {
-            return this.nOTEField;
+            return this._note;
         }
         set {
-            this.nOTEField = value;
+            this._note = value;
         }
     }
 }
@@ -1253,7 +1199,6 @@ public partial class NewDataSet {
     /// <remarks/>
     [System.Xml.Serialization.XmlElementAttribute("CONSOLIDATED_LIST", typeof(ConsolidatedList))]
     [System.Xml.Serialization.XmlElementAttribute("LAST_DAY_UPDATED", typeof(Value[]))]
-    [System.Xml.Serialization.XmlElementAttribute("LIST_TYPE", typeof(ListType))]
     [System.Xml.Serialization.XmlElementAttribute("VALUE", typeof(Value), IsNullable=true)]
     public object[] Items {
         get {

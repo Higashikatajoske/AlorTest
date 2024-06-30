@@ -26,23 +26,28 @@ public class ConsoleService: IConsoleService
         while (!isFinished)
         {
             CreateStartView();
-            int choiceNumber = int.Parse(Console.ReadLine());
-
-            switch (choiceNumber)
+            if (!int.TryParse(Console.ReadLine(), out int choiceNumber))
             {
-                case 1:
-                    await DownloadFileView();
-                    break;
-                case 2:
-                    await ShowFileList();
-                    break;
-                case 3:
-                    await FindFile();
-                    break;
-                case 0:
-                    isFinished = true;
-                    Console.WriteLine("Выход");
-                    break;
+                Console.WriteLine("Неправильная команда");
+            }
+            else
+            {
+                switch (choiceNumber)
+                {
+                    case 1:
+                        await DownloadFileView();
+                        break;
+                    case 2:
+                        await ShowFileList();
+                        break;
+                    case 3:
+                        await FindFile();
+                        break;
+                    case 0:
+                        isFinished = true;
+                        Console.WriteLine("Выход");
+                        break;
+                }
             }
         }
     }
@@ -94,12 +99,12 @@ public class ConsoleService: IConsoleService
     private async Task FindFile()
     {
         Console.WriteLine("Напишите название файла");
-        string? fileName = "test.xml";
+        string? fileName = Console.ReadLine();
         if (!fileName.IsNullOrEmpty())
         {
             MemoryStream stream = await _fileService.GetFile(fileName!);
             XmlSerializer xmlSerializer = new XmlSerializer(typeof(ConsolidatedList));
-            ConsolidatedList? individualDesc = xmlSerializer.Deserialize(stream) as ConsolidatedList; 
+            ConsolidatedList? consolidatedList = xmlSerializer.Deserialize(stream) as ConsolidatedList; 
         }
         else
         {

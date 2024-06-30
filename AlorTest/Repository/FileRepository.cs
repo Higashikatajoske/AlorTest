@@ -24,4 +24,9 @@ public class FileRepository: IFileRepository
         return await _context.DownloadedFiles.Select(file => file.FileName).ToListAsync();
     }
 
+    public async Task<DownloadedFile?> GetFile(string fileName)
+    {
+        return await _context.DownloadedFiles.FirstOrDefaultAsync(file => file.FileName == fileName);
+    }
+
 }
