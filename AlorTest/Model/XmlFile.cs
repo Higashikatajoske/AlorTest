@@ -91,17 +91,17 @@ public partial class LastDayUpdated {
 [System.Diagnostics.DebuggerStepThroughAttribute()]
 [System.ComponentModel.DesignerCategoryAttribute("code")]
 [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
-[System.Xml.Serialization.XmlRootAttribute(Namespace="", IsNullable=false)]
+[System.Xml.Serialization.XmlRootAttribute(Namespace="", IsNullable=false, ElementName = "CONSOLIDATED_LIST")]
 public partial class ConsolidatedList {
     
     private Individual[] _individualsList;
     
-    private Entity[] _entitiesList;
+    //private Entity[] _entitiesList;
     
-    private string dateGeneratedField;
+    //private string dateGeneratedField;
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlArrayAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    [System.Xml.Serialization.XmlArrayAttribute("INDIVIDUALS",Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
     [System.Xml.Serialization.XmlArrayItemAttribute("INDIVIDUAL", typeof(Individual), Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
     public Individual[] IndividualsList {
         get {
@@ -112,28 +112,28 @@ public partial class ConsolidatedList {
         }
     }
     
-    /// <remarks/>
-    [System.Xml.Serialization.XmlArrayAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    [System.Xml.Serialization.XmlArrayItemAttribute("ENTITY", typeof(Entity), Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
-    public Entity[] EntitiesList {
-        get {
-            return this._entitiesList;
-        }
-        set {
-            this._entitiesList = value;
-        }
-    }
+    ///// <remarks/>
+    //[System.Xml.Serialization.XmlArrayAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    //[System.Xml.Serialization.XmlArrayItemAttribute("ENTITY", typeof(Entity), Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
+    //public Entity[] EntitiesList {
+    //    get {
+    //        return this._entitiesList;
+    //    }
+    //    set {
+    //        this._entitiesList = value;
+    //    }
+    //}
     
-    /// <remarks/>
-    [System.Xml.Serialization.XmlAttributeAttribute()]
-    public string DateGenerated {
-        get {
-            return this.dateGeneratedField;
-        }
-        set {
-            this.dateGeneratedField = value;
-        }
-    }
+    ///// <remarks/>
+    //[System.Xml.Serialization.XmlAttributeAttribute()]
+    //public string DateGenerated {
+    //    get {
+    //        return this.dateGeneratedField;
+    //    }
+    //    set {
+    //        this.dateGeneratedField = value;
+    //    }
+    //}
 }
 
 /// <remarks/>
@@ -560,81 +560,81 @@ public partial class IndividualAlias {
 [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
 public partial class IndividualAddress {
     
-    private string nOTEField;
+    private string _note;
     
-    private string sTREETField;
+    private string _street;
     
-    private string sTATE_PROVINCEField;
+    private string _stateProvince;
     
-    private string cITYField;
+    private string _city;
     
-    private string cOUNTRYField;
+    private string _country;
     
-    private string zIP_CODEField;
+    private string _zipCode;
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public string NOTE {
+    [System.Xml.Serialization.XmlElementAttribute("NOTE", Form =System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public string Note {
         get {
-            return this.nOTEField;
+            return this._note;
         }
         set {
-            this.nOTEField = value;
+            this._note = value;
         }
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public string STREET {
+    [System.Xml.Serialization.XmlElementAttribute("STREET", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public string Street {
         get {
-            return this.sTREETField;
+            return this._street;
         }
         set {
-            this.sTREETField = value;
+            this._street = value;
         }
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public string STATE_PROVINCE {
+    [System.Xml.Serialization.XmlElementAttribute("STATE_PROVINCE", Form =System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public string StateProvince {
         get {
-            return this.sTATE_PROVINCEField;
+            return this._stateProvince;
         }
         set {
-            this.sTATE_PROVINCEField = value;
+            this._stateProvince = value;
         }
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public string CITY {
+    [System.Xml.Serialization.XmlElementAttribute("City", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public string City {
         get {
-            return this.cITYField;
+            return this._city;
         }
         set {
-            this.cITYField = value;
+            this._city = value;
         }
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public string COUNTRY {
+    [System.Xml.Serialization.XmlElementAttribute("COUNTRY", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public string Country {
         get {
-            return this.cOUNTRYField;
+            return this._country;
         }
         set {
-            this.cOUNTRYField = value;
+            this._country = value;
         }
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public string ZIP_CODE {
+    [System.Xml.Serialization.XmlElementAttribute("ZIP_CODE", Form =System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public string ZipCode {
         get {
-            return this.zIP_CODEField;
+            return this._zipCode;
         }
         set {
-            this.zIP_CODEField = value;
+            this._zipCode = value;
         }
     }
 }
@@ -808,107 +808,107 @@ public partial class IndividualPlaceOfBirth {
 [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
 public partial class IndividualDocument {
     
-    private string tYPE_OF_DOCUMENTField;
+    private string _typeOfDocument;
     
-    private string tYPE_OF_DOCUMENT2Field;
+    private string _typeOfDocument2;
     
-    private string nOTEField;
+    private string _note;
     
-    private string nUMBERField;
+    private string _number;
     
-    private string iSSUING_COUNTRYField;
+    private string _issuingCountry;
     
-    private string dATE_OF_ISSUEField;
+    private string _dateOfIssue;
     
-    private string cITY_OF_ISSUEField;
+    private string _cityOfIssue;
     
-    private string cOUNTRY_OF_ISSUEField;
+    private string _countryOfIssue;
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public string TYPE_OF_DOCUMENT {
+    [System.Xml.Serialization.XmlElementAttribute("TYPE_OF_DOCUMENT", Form =System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public string TypeOfDocument {
         get {
-            return this.tYPE_OF_DOCUMENTField;
+            return this._typeOfDocument;
         }
         set {
-            this.tYPE_OF_DOCUMENTField = value;
+            this._typeOfDocument = value;
         }
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public string TYPE_OF_DOCUMENT2 {
+    [System.Xml.Serialization.XmlElementAttribute("TYPE_OF_DOCUMENT2", Form =System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public string TypeOfDocument2 {
         get {
-            return this.tYPE_OF_DOCUMENT2Field;
+            return this._typeOfDocument2;
         }
         set {
-            this.tYPE_OF_DOCUMENT2Field = value;
+            this._typeOfDocument2 = value;
         }
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public string NOTE {
+    [System.Xml.Serialization.XmlElementAttribute("NOTE", Form =System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public string Note {
         get {
-            return this.nOTEField;
+            return this._note;
         }
         set {
-            this.nOTEField = value;
+            this._note = value;
         }
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public string NUMBER {
+    [System.Xml.Serialization.XmlElementAttribute("NUMBER", Form =System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public string Number {
         get {
-            return this.nUMBERField;
+            return this._number;
         }
         set {
-            this.nUMBERField = value;
+            this._number = value;
         }
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public string ISSUING_COUNTRY {
+    [System.Xml.Serialization.XmlElementAttribute("ISSUING_COUNTRY", Form =System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public string IssuingCountry {
         get {
-            return this.iSSUING_COUNTRYField;
+            return this._issuingCountry;
         }
         set {
-            this.iSSUING_COUNTRYField = value;
+            this._issuingCountry = value;
         }
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public string DATE_OF_ISSUE {
+    [System.Xml.Serialization.XmlElementAttribute("DATE_OF_ISSUE", Form =System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public string DateOfIssue {
         get {
-            return this.dATE_OF_ISSUEField;
+            return this._dateOfIssue;
         }
         set {
-            this.dATE_OF_ISSUEField = value;
+            this._dateOfIssue = value;
         }
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public string CITY_OF_ISSUE {
+    [System.Xml.Serialization.XmlElementAttribute("CITY_OF_ISSUE", Form =System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public string CityOfIssue {
         get {
-            return this.cITY_OF_ISSUEField;
+            return this._cityOfIssue;
         }
         set {
-            this.cITY_OF_ISSUEField = value;
+            this._cityOfIssue = value;
         }
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public string COUNTRY_OF_ISSUE {
+    [System.Xml.Serialization.XmlElementAttribute("COUNTRY_OF_ISSUE", Form =System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public string CountryOfIssue {
         get {
-            return this.cOUNTRY_OF_ISSUEField;
+            return this._countryOfIssue;
         }
         set {
-            this.cOUNTRY_OF_ISSUEField = value;
+            this._countryOfIssue = value;
         }
     }
 }

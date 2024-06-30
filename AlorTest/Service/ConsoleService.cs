@@ -97,11 +97,9 @@ public class ConsoleService: IConsoleService
         string? fileName = "test.xml";
         if (!fileName.IsNullOrEmpty())
         {
-            XmlRootAttribute xmlRootAttribute = new XmlRootAttribute();
-            xmlRootAttribute.ElementName = "INDIVIDUAL";
             MemoryStream stream = await _fileService.GetFile(fileName!);
-            XmlSerializer xmlSerializer = new XmlSerializer(typeof(Individual), xmlRootAttribute);
-            Individual? individualDesc = xmlSerializer.Deserialize(stream) as Individual; 
+            XmlSerializer xmlSerializer = new XmlSerializer(typeof(ConsolidatedList));
+            ConsolidatedList? individualDesc = xmlSerializer.Deserialize(stream) as ConsolidatedList; 
         }
         else
         {
