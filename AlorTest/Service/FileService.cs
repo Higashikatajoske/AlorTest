@@ -26,7 +26,7 @@ public class FileService: IFileService
             fileModelStream.Position = 0;
             await fileModelStream.ReadAsync(memoryBuffer, 0, memoryBuffer.Length);
             string fileHash = GetHashFile(memoryBuffer);
-            string fileName = CreateFileName(fileHash, uploadFileModel.Extension);
+            string fileName = CreateFileName(fileHash, uploadFileModel.ContentType);
             string filepath = Path.Combine(_storageOptions.FileStoragePath, fileName);
 
             using (FileStream fileStream = new FileStream(filepath, FileMode.Create))
@@ -37,7 +37,7 @@ public class FileService: IFileService
             file = new DownloadedFile()
             {
                 FileName = fileName,
-                FileType = GetFileExtension(uploadFileModel.Extension)
+                FileType = GetFileExtension(uploadFileModel.ContentType)
             };
         }
         return file;
@@ -66,14 +66,14 @@ public class FileService: IFileService
 
     private string CreateFileName(string fileHash, string fileType)
     {
-        string fileName;
+        string fileName = fileHash;
         switch(fileType)
         {
             case "text/xml":
-                fileName = fileHash + "XmlFile.xml";
+                fileName = fileName + "XmlFile.xml";
                 break;
-            default:
-                fileName = "File";
+            case "text/html":
+                fileName = fileName + "HtmlFile.html";
                 break;
         }
         return fileName;
@@ -86,6 +86,9 @@ public class FileService: IFileService
         {
             case "text/xml":
                 extension = "xml";
+                break;
+            case "text/html":
+                extension = "html";
                 break;
             default:
                 extension = string.Empty;

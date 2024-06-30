@@ -5,5 +5,5 @@ namespace AlorTest.Service;
 
 public interface IHttpService
 {
-    Task<UploadFileModel> GetFile(string url);
+    Task<UploadFileModel?> GetFile(string url);
 }

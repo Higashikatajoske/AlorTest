@@ -22,7 +22,7 @@ public class HttpService: IHttpService
         UploadFileModel fileModel = new UploadFileModel()
         {
             FileMemoryStream = await httpResponseMessage.Content.ReadAsStreamAsync(),
-            Extension = httpResponseMessage.Content.Headers.ContentType?.MediaType ?? string.Empty,
+            ContentType = httpResponseMessage.Content.Headers.ContentType?.MediaType ?? string.Empty,
             FileName = httpResponseMessage.Content.Headers.ContentDisposition?.FileNameStar ?? string.Empty
         };
 

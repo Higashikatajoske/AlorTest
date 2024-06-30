@@ -68,8 +68,13 @@ public class ConsoleService: IConsoleService
         if (!url.IsNullOrEmpty())
         {
             Console.WriteLine("Идёт загрузка файла");
-            UploadFileModel uploadFileModel = await _httpService.GetFile(url!);
-            Console.WriteLine($"Файл типа {uploadFileModel.Extension} загружен");
+            UploadFileModel? uploadFileModel = await _httpService.GetFile(url!);
+            if (uploadFileModel == null)
+            {
+                Console.WriteLine("Файл не смог загрузиться");
+                return;
+            }
+            Console.WriteLine($"Файл с content-type {uploadFileModel.ContentType} загружен");
             DownloadedFile? downloadedFile = await _fileService.SaveFile(uploadFileModel);
 
             if (downloadedFile != null )
