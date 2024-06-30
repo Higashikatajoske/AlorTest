@@ -3,6 +3,7 @@ using AlorTest.Model;
 using AlorTest.Repository;
 using Microsoft.IdentityModel.Tokens;
 using AlorTest.Repository.DBModels;
+using System.Xml.Serialization;
 
 namespace AlorTest.Service;
 
@@ -96,8 +97,11 @@ public class ConsoleService: IConsoleService
         string? fileName = Console.ReadLine();
         if (!fileName.IsNullOrEmpty())
         {
-            string b = await _fileService.GetFile(fileName!);
-
+            XmlRootAttribute xmlRootAttribute = new XmlRootAttribute();
+            xmlRootAttribute.ElementName = "INDIVIDUAL";
+            MemoryStream stream = await _fileService.GetFile(fileName!);
+            XmlSerializer xmlSerializer = new XmlSerializer(typeof(Individual), xmlRootAttribute);
+            Individual? a = xmlSerializer.Deserialize(stream) as Individual; 
         }
         else
         {

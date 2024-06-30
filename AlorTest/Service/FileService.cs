@@ -49,16 +49,16 @@ public class FileService: IFileService
         return Convert.ToHexString(hashValue);
     }
 
-    public async Task<string> GetFile(string fileName)
+    public async Task<MemoryStream?> GetFile(string fileName)
     {
-        byte[]? memoryBuffer = null!;
+        MemoryStream memoryStream = new MemoryStream();
         string filepath = Path.Combine(_storageOptions.FileStoragePath, fileName);
         using (FileStream fileStream = new FileStream(filepath, FileMode.Open))
         {
-            memoryBuffer = new byte[fileStream.Length];
-            await fileStream.ReadAsync(memoryBuffer, 0, memoryBuffer.Length);
+            await fileStream.CopyToAsync(memoryStream);
+            memoryStream.Position = 0;
         }
-        return Encoding.UTF8.GetString(memoryBuffer);
+        return memoryStream;
     }
 
     private string ByteArrayToString(byte[] arrInput)

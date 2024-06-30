@@ -8,6 +8,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System.Xml.Serialization;
+
 namespace AlorTest.Model;
 
 // 
@@ -92,33 +94,33 @@ public partial class LastDayUpdated {
 [System.Xml.Serialization.XmlRootAttribute(Namespace="", IsNullable=false)]
 public partial class ConsolidatedList {
     
-    private Individuals[] IndividualsField;
+    private Individual[] _individualsList;
     
-    private Entities[] EntitiesField;
+    private Entity[] _entitiesList;
     
     private string dateGeneratedField;
     
     /// <remarks/>
     [System.Xml.Serialization.XmlArrayAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    [System.Xml.Serialization.XmlArrayItemAttribute("INDIVIDUAL", typeof(Individuals), Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
-    public Individuals[] Individuals {
+    [System.Xml.Serialization.XmlArrayItemAttribute("INDIVIDUAL", typeof(Individual), Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
+    public Individual[] IndividualsList {
         get {
-            return this.IndividualsField;
+            return this._individualsList;
         }
         set {
-            this.IndividualsField = value;
+            this._individualsList = value;
         }
     }
     
     /// <remarks/>
     [System.Xml.Serialization.XmlArrayAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    [System.Xml.Serialization.XmlArrayItemAttribute("ENTITY", typeof(Entities), Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
-    public Entities[] Entities {
+    [System.Xml.Serialization.XmlArrayItemAttribute("ENTITY", typeof(Entity), Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
+    public Entity[] EntitiesList {
         get {
-            return this.EntitiesField;
+            return this._entitiesList;
         }
         set {
-            this.EntitiesField = value;
+            this._entitiesList = value;
         }
     }
     
@@ -140,64 +142,64 @@ public partial class ConsolidatedList {
 [System.Diagnostics.DebuggerStepThroughAttribute()]
 [System.ComponentModel.DesignerCategoryAttribute("code")]
 [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
-public partial class Individuals {
+public partial class Individual {
     
-    private string DataIdField;
+    private string _dataId;
     
-    private string VersionNumField;
+    private string _versionNum;
     
-    private string FirstNameField;
+    private string _firstName;
     
-    private string SecondNameField;
+    private string _secondName;
     
-    private string tHIRD_NAMEField;
+    private string _thirdName;
     
-    private string fOURTH_NAMEField;
+    private string _fourthName;
     
-    private string uN_LIST_TYPEField;
+    private string _unListType;
     
-    private string rEFERENCE_NUMBERField;
+    private string _reference_number;
     
-    private string lISTED_ONField;
+    private string _listedOn;
     
-    private string gENDERField;
+    private string _gender;
     
-    private string nAME_ORIGINAL_SCRIPTField;
+    private string _nameOriginalScript;
     
-    private string cOMMENTS1Field;
+    private string _comments1;
     
-    private string sORT_KEYField;
+    private string _sortKey;
     
-    private string sORT_KEY_LAST_MODField;
+    private string _sortKeyLastModified;
     
-    private Value[] tITLEField;
+    private Value[] _title;
     
-    private Value[] dESIGNATIONField;
+    private Value[] _designation;
     
-    private Value[] nATIONALITYField;
+    private Value[] _nationality;
     
-    private ListType[] lIST_TYPEField;
+    private ListType[] _listType;
     
-    private Value[] lAST_DAY_UPDATEDField;
+    private Value[] _lastDayUpdated;
     
-    private CONSOLIDATED_LISTINDIVIDUALSINDIVIDUALINDIVIDUAL_ALIAS[] iNDIVIDUAL_ALIASField;
+    private IndividualAlias[] _individualAliasList;
     
-    private CONSOLIDATED_LISTINDIVIDUALSINDIVIDUALINDIVIDUAL_ADDRESS[] iNDIVIDUAL_ADDRESSField;
+    private IndividualAddress[] _individualAddressList;
     
-    private CONSOLIDATED_LISTINDIVIDUALSINDIVIDUALINDIVIDUAL_DATE_OF_BIRTH[] iNDIVIDUAL_DATE_OF_BIRTHField;
+    private IndividualDateOfBirth[] _individualDateOfBirthList;
     
-    private CONSOLIDATED_LISTINDIVIDUALSINDIVIDUALINDIVIDUAL_PLACE_OF_BIRTH[] iNDIVIDUAL_PLACE_OF_BIRTHField;
+    private IndividualPlaceOfBirth[] _individualPlaceOfBirthList;
     
-    private CONSOLIDATED_LISTINDIVIDUALSINDIVIDUALINDIVIDUAL_DOCUMENT[] iNDIVIDUAL_DOCUMENTField;
-    
+    private IndividualDocument[] _individualDocumentList;
+
     /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public string DATAID {
+    [System.Xml.Serialization.XmlElementAttribute("DATAID", Form = System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public string DataId {
         get {
-            return this.DataIdField;
+            return this._dataId;
         }
         set {
-            this.DataIdField = value;
+            this._dataId = value;
         }
     }
     
@@ -205,10 +207,10 @@ public partial class Individuals {
     [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
     public string VERSIONNUM {
         get {
-            return this.VersionNumField;
+            return this._versionNum;
         }
         set {
-            this.VersionNumField = value;
+            this._versionNum = value;
         }
     }
     
@@ -216,10 +218,10 @@ public partial class Individuals {
     [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
     public string FIRST_NAME {
         get {
-            return this.FirstNameField;
+            return this._firstName;
         }
         set {
-            this.FirstNameField = value;
+            this._firstName = value;
         }
     }
     
@@ -227,10 +229,10 @@ public partial class Individuals {
     [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
     public string SECOND_NAME {
         get {
-            return this.SecondNameField;
+            return this._secondName;
         }
         set {
-            this.SecondNameField = value;
+            this._secondName = value;
         }
     }
     
@@ -238,10 +240,10 @@ public partial class Individuals {
     [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
     public string THIRD_NAME {
         get {
-            return this.tHIRD_NAMEField;
+            return this._thirdName;
         }
         set {
-            this.tHIRD_NAMEField = value;
+            this._thirdName = value;
         }
     }
     
@@ -249,10 +251,10 @@ public partial class Individuals {
     [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
     public string FOURTH_NAME {
         get {
-            return this.fOURTH_NAMEField;
+            return this._fourthName;
         }
         set {
-            this.fOURTH_NAMEField = value;
+            this._fourthName = value;
         }
     }
     
@@ -260,10 +262,10 @@ public partial class Individuals {
     [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
     public string UN_LIST_TYPE {
         get {
-            return this.uN_LIST_TYPEField;
+            return this._unListType;
         }
         set {
-            this.uN_LIST_TYPEField = value;
+            this._unListType = value;
         }
     }
     
@@ -271,10 +273,10 @@ public partial class Individuals {
     [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
     public string REFERENCE_NUMBER {
         get {
-            return this.rEFERENCE_NUMBERField;
+            return this._reference_number;
         }
         set {
-            this.rEFERENCE_NUMBERField = value;
+            this._reference_number = value;
         }
     }
     
@@ -282,10 +284,10 @@ public partial class Individuals {
     [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
     public string LISTED_ON {
         get {
-            return this.lISTED_ONField;
+            return this._listedOn;
         }
         set {
-            this.lISTED_ONField = value;
+            this._listedOn = value;
         }
     }
     
@@ -293,10 +295,10 @@ public partial class Individuals {
     [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
     public string GENDER {
         get {
-            return this.gENDERField;
+            return this._gender;
         }
         set {
-            this.gENDERField = value;
+            this._gender = value;
         }
     }
     
@@ -304,10 +306,10 @@ public partial class Individuals {
     [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
     public string NAME_ORIGINAL_SCRIPT {
         get {
-            return this.nAME_ORIGINAL_SCRIPTField;
+            return this._nameOriginalScript;
         }
         set {
-            this.nAME_ORIGINAL_SCRIPTField = value;
+            this._nameOriginalScript = value;
         }
     }
     
@@ -315,10 +317,10 @@ public partial class Individuals {
     [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
     public string COMMENTS1 {
         get {
-            return this.cOMMENTS1Field;
+            return this._comments1;
         }
         set {
-            this.cOMMENTS1Field = value;
+            this._comments1 = value;
         }
     }
     
@@ -326,10 +328,10 @@ public partial class Individuals {
     [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
     public string SORT_KEY {
         get {
-            return this.sORT_KEYField;
+            return this._sortKey;
         }
         set {
-            this.sORT_KEYField = value;
+            this._sortKey = value;
         }
     }
     
@@ -337,10 +339,10 @@ public partial class Individuals {
     [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
     public string SORT_KEY_LAST_MOD {
         get {
-            return this.sORT_KEY_LAST_MODField;
+            return this._sortKeyLastModified;
         }
         set {
-            this.sORT_KEY_LAST_MODField = value;
+            this._sortKeyLastModified = value;
         }
     }
     
@@ -349,22 +351,22 @@ public partial class Individuals {
     [System.Xml.Serialization.XmlArrayItemAttribute("VALUE", typeof(Value))]
     public Value[] TITLE {
         get {
-            return this.tITLEField;
+            return this._title;
         }
         set {
-            this.tITLEField = value;
+            this._title = value;
         }
     }
     
     /// <remarks/>
     [System.Xml.Serialization.XmlArrayAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
     [System.Xml.Serialization.XmlArrayItemAttribute("VALUE", typeof(Value))]
-    public Value[] DESIGNATION {
+    public Value[] Designation {
         get {
-            return this.dESIGNATIONField;
+            return this._designation;
         }
         set {
-            this.dESIGNATIONField = value;
+            this._designation = value;
         }
     }
     
@@ -373,10 +375,10 @@ public partial class Individuals {
     [System.Xml.Serialization.XmlArrayItemAttribute("VALUE", typeof(Value))]
     public Value[] NATIONALITY {
         get {
-            return this.nATIONALITYField;
+            return this._nationality;
         }
         set {
-            this.nATIONALITYField = value;
+            this._nationality = value;
         }
     }
     
@@ -384,10 +386,10 @@ public partial class Individuals {
     [System.Xml.Serialization.XmlElementAttribute("LIST_TYPE")]
     public ListType[] LIST_TYPE {
         get {
-            return this.lIST_TYPEField;
+            return this._listType;
         }
         set {
-            this.lIST_TYPEField = value;
+            this._listType = value;
         }
     }
     
@@ -395,65 +397,65 @@ public partial class Individuals {
     [System.Xml.Serialization.XmlArrayItemAttribute("VALUE", typeof(Value))]
     public Value[] LAST_DAY_UPDATED {
         get {
-            return this.lAST_DAY_UPDATEDField;
+            return this._lastDayUpdated;
         }
         set {
-            this.lAST_DAY_UPDATEDField = value;
+            this._lastDayUpdated = value;
         }
     }
     
     /// <remarks/>
     [System.Xml.Serialization.XmlElementAttribute("INDIVIDUAL_ALIAS", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public CONSOLIDATED_LISTINDIVIDUALSINDIVIDUALINDIVIDUAL_ALIAS[] INDIVIDUAL_ALIAS {
+    public IndividualAlias[] INDIVIDUAL_ALIAS {
         get {
-            return this.iNDIVIDUAL_ALIASField;
+            return this._individualAliasList;
         }
         set {
-            this.iNDIVIDUAL_ALIASField = value;
+            this._individualAliasList = value;
         }
     }
     
     /// <remarks/>
     [System.Xml.Serialization.XmlElementAttribute("INDIVIDUAL_ADDRESS", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public CONSOLIDATED_LISTINDIVIDUALSINDIVIDUALINDIVIDUAL_ADDRESS[] INDIVIDUAL_ADDRESS {
+    public IndividualAddress[] INDIVIDUAL_ADDRESS {
         get {
-            return this.iNDIVIDUAL_ADDRESSField;
+            return this._individualAddressList;
         }
         set {
-            this.iNDIVIDUAL_ADDRESSField = value;
+            this._individualAddressList = value;
         }
     }
     
     /// <remarks/>
     [System.Xml.Serialization.XmlElementAttribute("INDIVIDUAL_DATE_OF_BIRTH", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public CONSOLIDATED_LISTINDIVIDUALSINDIVIDUALINDIVIDUAL_DATE_OF_BIRTH[] INDIVIDUAL_DATE_OF_BIRTH {
+    public IndividualDateOfBirth[] IndividualDateOfBirth {
         get {
-            return this.iNDIVIDUAL_DATE_OF_BIRTHField;
+            return this._individualDateOfBirthList;
         }
         set {
-            this.iNDIVIDUAL_DATE_OF_BIRTHField = value;
+            this._individualDateOfBirthList = value;
         }
     }
     
     /// <remarks/>
     [System.Xml.Serialization.XmlElementAttribute("INDIVIDUAL_PLACE_OF_BIRTH", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public CONSOLIDATED_LISTINDIVIDUALSINDIVIDUALINDIVIDUAL_PLACE_OF_BIRTH[] INDIVIDUAL_PLACE_OF_BIRTH {
+    public IndividualPlaceOfBirth[] IndividualPlaceOfBirth {
         get {
-            return this.iNDIVIDUAL_PLACE_OF_BIRTHField;
+            return this._individualPlaceOfBirthList;
         }
         set {
-            this.iNDIVIDUAL_PLACE_OF_BIRTHField = value;
+            this._individualPlaceOfBirthList = value;
         }
     }
     
     /// <remarks/>
     [System.Xml.Serialization.XmlElementAttribute("INDIVIDUAL_DOCUMENT", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public CONSOLIDATED_LISTINDIVIDUALSINDIVIDUALINDIVIDUAL_DOCUMENT[] INDIVIDUAL_DOCUMENT {
+    public IndividualDocument[] INDIVIDUAL_DOCUMENT {
         get {
-            return this.iNDIVIDUAL_DOCUMENTField;
+            return this._individualDocumentList;
         }
         set {
-            this.iNDIVIDUAL_DOCUMENTField = value;
+            this._individualDocumentList = value;
         }
     }
 }
@@ -464,7 +466,7 @@ public partial class Individuals {
 [System.Diagnostics.DebuggerStepThroughAttribute()]
 [System.ComponentModel.DesignerCategoryAttribute("code")]
 [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
-public partial class CONSOLIDATED_LISTINDIVIDUALSINDIVIDUALINDIVIDUAL_ALIAS {
+public partial class IndividualAlias {
     
     private string qUALITYField;
     
@@ -551,7 +553,7 @@ public partial class CONSOLIDATED_LISTINDIVIDUALSINDIVIDUALINDIVIDUAL_ALIAS {
 [System.Diagnostics.DebuggerStepThroughAttribute()]
 [System.ComponentModel.DesignerCategoryAttribute("code")]
 [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
-public partial class CONSOLIDATED_LISTINDIVIDUALSINDIVIDUALINDIVIDUAL_ADDRESS {
+public partial class IndividualAddress {
     
     private string nOTEField;
     
@@ -638,157 +640,83 @@ public partial class CONSOLIDATED_LISTINDIVIDUALSINDIVIDUALINDIVIDUAL_ADDRESS {
 [System.Diagnostics.DebuggerStepThroughAttribute()]
 [System.ComponentModel.DesignerCategoryAttribute("code")]
 [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
-public partial class CONSOLIDATED_LISTINDIVIDUALSINDIVIDUALINDIVIDUAL_DATE_OF_BIRTH {
+public partial class IndividualDateOfBirth {
     
-    private string tYPE_OF_DATEField;
+    private string _typeOfDate;
     
-    private string dATEField;
+    private string _date;
     
-    private string fROM_YEARField;
+    private string _fromYear;
     
-    private string tO_YEARField;
+    private string _toYear;
     
-    private string nOTEField;
+    private string _note;
     
-    private string yEARField;
+    private string _year;
     
     /// <remarks/>
     [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public string TYPE_OF_DATE {
+    public string TypeOfDate {
         get {
-            return this.tYPE_OF_DATEField;
+            return this._typeOfDate;
         }
         set {
-            this.tYPE_OF_DATEField = value;
+            this._typeOfDate = value;
         }
     }
     
     /// <remarks/>
     [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public string DATE {
+    public string Date {
         get {
-            return this.dATEField;
+            return this._date;
         }
         set {
-            this.dATEField = value;
+            this._date = value;
         }
     }
     
     /// <remarks/>
     [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public string FROM_YEAR {
+    public string FromYear {
         get {
-            return this.fROM_YEARField;
+            return this._fromYear;
         }
         set {
-            this.fROM_YEARField = value;
+            this._fromYear = value;
         }
     }
     
     /// <remarks/>
     [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public string TO_YEAR {
+    public string ToYear {
         get {
-            return this.tO_YEARField;
+            return this._toYear;
         }
         set {
-            this.tO_YEARField = value;
+            this._toYear = value;
         }
     }
     
     /// <remarks/>
     [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public string NOTE {
+    public string Note {
         get {
-            return this.nOTEField;
+            return this._note;
         }
         set {
-            this.nOTEField = value;
+            this._note = value;
         }
     }
     
     /// <remarks/>
     [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public string YEAR {
+    public string Year {
         get {
-            return this.yEARField;
+            return this._year;
         }
         set {
-            this.yEARField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.8.3928.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
-public partial class CONSOLIDATED_LISTINDIVIDUALSINDIVIDUALINDIVIDUAL_PLACE_OF_BIRTH {
-    
-    private string sTREETField;
-    
-    private string cITYField;
-    
-    private string sTATE_PROVINCEField;
-    
-    private string nOTEField;
-    
-    private string cOUNTRYField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public string STREET {
-        get {
-            return this.sTREETField;
-        }
-        set {
-            this.sTREETField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public string CITY {
-        get {
-            return this.cITYField;
-        }
-        set {
-            this.cITYField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public string STATE_PROVINCE {
-        get {
-            return this.sTATE_PROVINCEField;
-        }
-        set {
-            this.sTATE_PROVINCEField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public string NOTE {
-        get {
-            return this.nOTEField;
-        }
-        set {
-            this.nOTEField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public string COUNTRY {
-        get {
-            return this.cOUNTRYField;
-        }
-        set {
-            this.cOUNTRYField = value;
+            this._year = value;
         }
     }
 }
@@ -799,7 +727,81 @@ public partial class CONSOLIDATED_LISTINDIVIDUALSINDIVIDUALINDIVIDUAL_PLACE_OF_B
 [System.Diagnostics.DebuggerStepThroughAttribute()]
 [System.ComponentModel.DesignerCategoryAttribute("code")]
 [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
-public partial class CONSOLIDATED_LISTINDIVIDUALSINDIVIDUALINDIVIDUAL_DOCUMENT {
+public partial class IndividualPlaceOfBirth {
+    
+    private string _street;
+    
+    private string _city;
+    
+    private string _stateProvince;
+    
+    private string _note;
+    
+    private string _country;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public string Street {
+        get {
+            return this._street;
+        }
+        set {
+            this._street = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public string City {
+        get {
+            return this._city;
+        }
+        set {
+            this._city = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public string StateProvince {
+        get {
+            return this._stateProvince;
+        }
+        set {
+            this._stateProvince = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public string Note {
+        get {
+            return this._note;
+        }
+        set {
+            this._note = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public string Country {
+        get {
+            return this._country;
+        }
+        set {
+            this._country = value;
+        }
+    }
+}
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.8.3928.0")]
+[System.SerializableAttribute()]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
+public partial class IndividualDocument {
     
     private string tYPE_OF_DOCUMENTField;
     
@@ -912,7 +914,7 @@ public partial class CONSOLIDATED_LISTINDIVIDUALSINDIVIDUALINDIVIDUAL_DOCUMENT {
 [System.Diagnostics.DebuggerStepThroughAttribute()]
 [System.ComponentModel.DesignerCategoryAttribute("code")]
 [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
-public partial class Entities {
+public partial class Entity {
     
     private string dATAIDField;
     
