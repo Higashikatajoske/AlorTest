@@ -178,7 +178,7 @@ public partial class Individual {
     
     private Value[] _nationality;
     
-    private ListType[] _listType;
+    private Value[] _listType;
     
     private Value[] _lastDayUpdated;
     
@@ -204,8 +204,9 @@ public partial class Individual {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public string VERSIONNUM {
+    [System.Xml.Serialization.XmlElementAttribute("VERSIONNUM", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public string VersionNum
+    {
         get {
             return this._versionNum;
         }
@@ -215,8 +216,8 @@ public partial class Individual {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public string FIRST_NAME {
+    [System.Xml.Serialization.XmlElementAttribute("FIRST_NAME", Form =System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public string FirstName {
         get {
             return this._firstName;
         }
@@ -226,8 +227,8 @@ public partial class Individual {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public string SECOND_NAME {
+    [System.Xml.Serialization.XmlElementAttribute("SECOND_NAME", Form =System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public string SecondName {
         get {
             return this._secondName;
         }
@@ -237,8 +238,8 @@ public partial class Individual {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public string THIRD_NAME {
+    [System.Xml.Serialization.XmlElementAttribute("THIRD_NAME", Form =System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public string ThirdName {
         get {
             return this._thirdName;
         }
@@ -248,8 +249,8 @@ public partial class Individual {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public string FOURTH_NAME {
+    [System.Xml.Serialization.XmlElementAttribute("FOURTH_NAME", Form =System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public string FourthName {
         get {
             return this._fourthName;
         }
@@ -259,8 +260,8 @@ public partial class Individual {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public string UN_LIST_TYPE {
+    [System.Xml.Serialization.XmlElementAttribute("UN_LIST_TYPE", Form =System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public string UnListType {
         get {
             return this._unListType;
         }
@@ -270,8 +271,8 @@ public partial class Individual {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public string REFERENCE_NUMBER {
+    [System.Xml.Serialization.XmlElementAttribute("REFERENCE_NUMBER", Form =System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public string ReferenceNumber {
         get {
             return this._reference_number;
         }
@@ -281,8 +282,8 @@ public partial class Individual {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public string LISTED_ON {
+    [System.Xml.Serialization.XmlElementAttribute("LISTED_ON", Form =System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public string ListedOn {
         get {
             return this._listedOn;
         }
@@ -292,8 +293,8 @@ public partial class Individual {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public string GENDER {
+    [System.Xml.Serialization.XmlElementAttribute("GENDER", Form =System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public string Gender {
         get {
             return this._gender;
         }
@@ -303,8 +304,8 @@ public partial class Individual {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public string NAME_ORIGINAL_SCRIPT {
+    [System.Xml.Serialization.XmlElementAttribute("NAME_ORIGINAL_SCRIPT", Form =System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public string NameOriginalScript {
         get {
             return this._nameOriginalScript;
         }
@@ -314,8 +315,8 @@ public partial class Individual {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public string COMMENTS1 {
+    [System.Xml.Serialization.XmlElementAttribute("COMMENTS1", Form =System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public string Comments1 {
         get {
             return this._comments1;
         }
@@ -325,8 +326,8 @@ public partial class Individual {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public string SORT_KEY {
+    [System.Xml.Serialization.XmlElementAttribute("SORT_KEY", Form =System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public string SortKey {
         get {
             return this._sortKey;
         }
@@ -336,8 +337,8 @@ public partial class Individual {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public string SORT_KEY_LAST_MOD {
+    [System.Xml.Serialization.XmlElementAttribute("SORT_KEY_LAST_MOD", Form =System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public string SortKeyLastMod {
         get {
             return this._sortKeyLastModified;
         }
@@ -347,9 +348,9 @@ public partial class Individual {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlArrayAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    [System.Xml.Serialization.XmlArrayAttribute("TITLE", Form =System.Xml.Schema.XmlSchemaForm.Unqualified)]
     [System.Xml.Serialization.XmlArrayItemAttribute("VALUE", typeof(Value))]
-    public Value[] TITLE {
+    public Value[] Title {
         get {
             return this._title;
         }
@@ -359,7 +360,7 @@ public partial class Individual {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlArrayAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    [System.Xml.Serialization.XmlArrayAttribute("DESIGNATION", Form =System.Xml.Schema.XmlSchemaForm.Unqualified)]
     [System.Xml.Serialization.XmlArrayItemAttribute("VALUE", typeof(Value))]
     public Value[] Designation {
         get {
@@ -371,9 +372,9 @@ public partial class Individual {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlArrayAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    [System.Xml.Serialization.XmlArrayAttribute("NATIONALITY", Form =System.Xml.Schema.XmlSchemaForm.Unqualified)]
     [System.Xml.Serialization.XmlArrayItemAttribute("VALUE", typeof(Value))]
-    public Value[] NATIONALITY {
+    public Value[] Nationality {
         get {
             return this._nationality;
         }
@@ -383,8 +384,9 @@ public partial class Individual {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute("LIST_TYPE")]
-    public ListType[] LIST_TYPE {
+    [System.Xml.Serialization.XmlArrayAttribute("LIST_TYPE", Form = System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    [System.Xml.Serialization.XmlArrayItemAttribute("VALUE", typeof(Value))]
+    public Value[] ListType {
         get {
             return this._listType;
         }
@@ -394,8 +396,9 @@ public partial class Individual {
     }
     
     /// <remarks/>
+    [System.Xml.Serialization.XmlArrayAttribute("LAST_DAY_UPDATED", Form = System.Xml.Schema.XmlSchemaForm.Unqualified)]
     [System.Xml.Serialization.XmlArrayItemAttribute("VALUE", typeof(Value))]
-    public Value[] LAST_DAY_UPDATED {
+    public Value[] LastDayUpdated {
         get {
             return this._lastDayUpdated;
         }
@@ -406,7 +409,7 @@ public partial class Individual {
     
     /// <remarks/>
     [System.Xml.Serialization.XmlElementAttribute("INDIVIDUAL_ALIAS", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public IndividualAlias[] INDIVIDUAL_ALIAS {
+    public IndividualAlias[] IndividualAlias {
         get {
             return this._individualAliasList;
         }
@@ -417,7 +420,8 @@ public partial class Individual {
     
     /// <remarks/>
     [System.Xml.Serialization.XmlElementAttribute("INDIVIDUAL_ADDRESS", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public IndividualAddress[] INDIVIDUAL_ADDRESS {
+    public IndividualAddress[] IndividualAddress
+    {
         get {
             return this._individualAddressList;
         }
@@ -439,7 +443,8 @@ public partial class Individual {
     
     /// <remarks/>
     [System.Xml.Serialization.XmlElementAttribute("INDIVIDUAL_PLACE_OF_BIRTH", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public IndividualPlaceOfBirth[] IndividualPlaceOfBirth {
+    public IndividualPlaceOfBirth[] IndividualPlaceOfBirth
+    {
         get {
             return this._individualPlaceOfBirthList;
         }
@@ -450,7 +455,7 @@ public partial class Individual {
     
     /// <remarks/>
     [System.Xml.Serialization.XmlElementAttribute("INDIVIDUAL_DOCUMENT", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public IndividualDocument[] INDIVIDUAL_DOCUMENT {
+    public IndividualDocument[] IndividualDocument {
         get {
             return this._individualDocumentList;
         }
@@ -655,7 +660,7 @@ public partial class IndividualDateOfBirth {
     private string _year;
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    [System.Xml.Serialization.XmlElementAttribute("TYPE_OF_DATE", Form =System.Xml.Schema.XmlSchemaForm.Unqualified)]
     public string TypeOfDate {
         get {
             return this._typeOfDate;
@@ -666,7 +671,7 @@ public partial class IndividualDateOfBirth {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    [System.Xml.Serialization.XmlElementAttribute("DATE", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
     public string Date {
         get {
             return this._date;
@@ -677,7 +682,7 @@ public partial class IndividualDateOfBirth {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    [System.Xml.Serialization.XmlElementAttribute("FROM_YEAR", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
     public string FromYear {
         get {
             return this._fromYear;
@@ -688,7 +693,7 @@ public partial class IndividualDateOfBirth {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    [System.Xml.Serialization.XmlElementAttribute("TO_YEAR", Form =System.Xml.Schema.XmlSchemaForm.Unqualified)]
     public string ToYear {
         get {
             return this._toYear;
@@ -699,7 +704,7 @@ public partial class IndividualDateOfBirth {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    [System.Xml.Serialization.XmlElementAttribute("NOTE", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
     public string Note {
         get {
             return this._note;
@@ -710,7 +715,7 @@ public partial class IndividualDateOfBirth {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    [System.Xml.Serialization.XmlElementAttribute("YEAR", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
     public string Year {
         get {
             return this._year;
@@ -740,7 +745,7 @@ public partial class IndividualPlaceOfBirth {
     private string _country;
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    [System.Xml.Serialization.XmlElementAttribute("STREET", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
     public string Street {
         get {
             return this._street;
@@ -751,7 +756,7 @@ public partial class IndividualPlaceOfBirth {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    [System.Xml.Serialization.XmlElementAttribute("CITY", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
     public string City {
         get {
             return this._city;
@@ -762,7 +767,7 @@ public partial class IndividualPlaceOfBirth {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    [System.Xml.Serialization.XmlElementAttribute("STATE_PROVINCE", Form =System.Xml.Schema.XmlSchemaForm.Unqualified)]
     public string StateProvince {
         get {
             return this._stateProvince;
@@ -773,7 +778,7 @@ public partial class IndividualPlaceOfBirth {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    [System.Xml.Serialization.XmlElementAttribute("NOTE", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
     public string Note {
         get {
             return this._note;
@@ -784,7 +789,7 @@ public partial class IndividualPlaceOfBirth {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    [System.Xml.Serialization.XmlElementAttribute("COUNTRY", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
     public string Country {
         get {
             return this._country;

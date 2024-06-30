@@ -94,14 +94,14 @@ public class ConsoleService: IConsoleService
     private async Task FindFile()
     {
         Console.WriteLine("Напишите название файла");
-        string? fileName = Console.ReadLine();
+        string? fileName = "test.xml";
         if (!fileName.IsNullOrEmpty())
         {
             XmlRootAttribute xmlRootAttribute = new XmlRootAttribute();
             xmlRootAttribute.ElementName = "INDIVIDUAL";
             MemoryStream stream = await _fileService.GetFile(fileName!);
             XmlSerializer xmlSerializer = new XmlSerializer(typeof(Individual), xmlRootAttribute);
-            Individual? a = xmlSerializer.Deserialize(stream) as Individual; 
+            Individual? individualDesc = xmlSerializer.Deserialize(stream) as Individual; 
         }
         else
         {
