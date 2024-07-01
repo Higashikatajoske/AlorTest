@@ -54,7 +54,6 @@ namespace AlorTest.Repository
                 }
             }
             await _dbContext.AddRangeAsync(dbIndividualList);
-            _dbContext.SaveChanges();
             await _dbContext.AddRangeAsync(dbIndividualTitleList);
             _dbContext.SaveChanges();
         } 
