@@ -43,7 +43,7 @@ public class ConsoleService: IConsoleService
                         await ShowFileList();
                         break;
                     case 3:
-                        FindFile();
+                        await FindFile();
                         break;
                     case 0:
                         isFinished = true;
@@ -135,20 +135,30 @@ public class ConsoleService: IConsoleService
                 return;
             }
 
+
+            ConsolidatedList? consolidatedList = null;
             try
             {
                 XmlSerializer xmlSerializer = new XmlSerializer(typeof(ConsolidatedList));
-                ConsolidatedList? consolidatedList = xmlSerializer.Deserialize(stream) as ConsolidatedList;
-                if (consolidatedList == null)
-                {
-                    Console.WriteLine("Файл пуст");
-                    return;
-                }
-                await _xmlFileService.SaveConsolidatedListToDB(consolidatedList);
+                consolidatedList = xmlSerializer.Deserialize(stream) as ConsolidatedList;
+
+                stream.Dispose();
+                stream.Close();
             }
             catch
             {
                 Console.WriteLine("Произошла ошибка парсинка. Этот xml-файл не подходит для этого парсинга");
+            }
+
+            if (consolidatedList == null)
+            {
+                Console.WriteLine("Файл пуст");
+                return;
+            }
+            else
+            {
+                await _xmlFileService.SaveConsolidatedListToDB(consolidatedList);
+                Console.WriteLine("Данные записаны в БД\n");
             }
         }
         else
