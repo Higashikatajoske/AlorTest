@@ -19,4 +19,5 @@ public class Individual
     public string? SortKeyLastMod { get; set; } = null!;
 
     public List<IndividualTitle> Titles { get; set; } = new List<IndividualTitle>();
+    public List<IndividualDesignation> Designations { get; set; } = new List<IndividualDesignation>();
 }

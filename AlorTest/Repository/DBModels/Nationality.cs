@@ -1,7 +1,7 @@
 ﻿namespace AlorTest.Repository.DBModels;
 
-public class Designation
+public class Nationality
 {
-    public Guid IndividualId { get; set; }
+    public int Id { get; set; }
     public string Value { get; set; } = null!;
 }

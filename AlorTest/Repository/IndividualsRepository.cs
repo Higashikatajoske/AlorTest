@@ -16,6 +16,7 @@ namespace AlorTest.Repository
         {
             List<DBModels.Individual> dbIndividualList = new List<DBModels.Individual>();
             List<IndividualTitle> dbIndividualTitleList = new List<IndividualTitle>();
+            List<IndividualDesignation> dbIndividualDesignationList = new List<IndividualDesignation>();
 
             foreach (Model.Individual individual in individualsArray)
             {
@@ -39,6 +40,7 @@ namespace AlorTest.Repository
                 };
 
                 dbIndividualList.Add(dbIndividual);
+
                 if (individual.Title != null)
                 {
                     foreach (Value title in individual.Title)
@@ -52,9 +54,24 @@ namespace AlorTest.Repository
                         dbIndividualTitleList.Add(dbIndividualTitle);
                     }
                 }
+
+                if (individual.Designation != null)
+                {
+                    foreach (Value designation in individual.Designation)
+                    {
+                        IndividualDesignation dbIndividualDesignation = new IndividualDesignation()
+                        {
+                           Description = designation.ValueField,
+                           IndividualId = dbIndividual.Id
+                        };
+
+                        dbIndividualDesignationList.Add(dbIndividualDesignation);
+                    }
+                }
             }
             await _dbContext.AddRangeAsync(dbIndividualList);
             await _dbContext.AddRangeAsync(dbIndividualTitleList);
+            await _dbContext.AddRangeAsync(dbIndividualDesignationList);
             _dbContext.SaveChanges();
         } 
     }

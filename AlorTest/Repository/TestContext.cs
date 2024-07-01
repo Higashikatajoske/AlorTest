@@ -61,6 +61,15 @@ public partial class TestContext : DbContext
             .WithMany(individual => individual.Titles);
         });
 
+        modelBuilder.Entity<IndividualDesignation>(desig =>
+        {
+            desig.HasKey(d => new { d.IndividualId, d.Description });
+
+            desig
+            .HasOne(title => title.Individual)
+            .WithMany(individual => individual.Designations);
+        });
+
         OnModelCreatingPartial(modelBuilder);
     }
 
