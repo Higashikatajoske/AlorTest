@@ -20,6 +20,7 @@ namespace AlorTest.Repository
             {
                 DBModels.Individual dbIndividual = new DBModels.Individual()
                 {
+                    Id = Guid.NewGuid(),
                     DataId = int.Parse(individual.DataId),
                     VersionNum = int.Parse(individual.VersionNum),
                     FirstName = individual.FirstName,
@@ -35,6 +36,7 @@ namespace AlorTest.Repository
                     SortKey = individual.SortKey,
                     SortKeyLastMod = individual.SortKeyLastMod,
                 };
+
                 dbIndividualList.Add(dbIndividual);
             }
             await _dbContext.AddRangeAsync(dbIndividualList);

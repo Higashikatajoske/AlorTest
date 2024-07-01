@@ -7,6 +7,7 @@ public class XmlFileService: IXmlFileService
 {
     private readonly IEntitiesRepository _entitiesRepository;
     private readonly IIndividualsRepository _individualsRepository;
+
     public XmlFileService(
         IEntitiesRepository entitiesRepository, 
         IIndividualsRepository individualsRepository) 
