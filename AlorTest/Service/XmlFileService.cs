@@ -15,8 +15,9 @@ public class XmlFileService: IXmlFileService
         _individualsRepository = individualsRepository;
     }
 
-    public void SaveConsolidatedListToDB(ConsolidatedList consolidatedList)
+    public async Task SaveConsolidatedListToDB(ConsolidatedList consolidatedList)
     {
-        _entitiesRepository
+        await _entitiesRepository.AddRangeEntities(consolidatedList.EntitiesList);
+        await _individualsRepository.AddRangeIndividuals(consolidatedList.IndividualsList);
     }
 }

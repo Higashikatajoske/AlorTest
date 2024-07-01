@@ -4,5 +4,5 @@ namespace AlorTest.Service;
 
 public interface IXmlFileService
 {
-    void SaveConsolidatedListToDB(ConsolidatedList consolidatedList);
+    Task SaveConsolidatedListToDB(ConsolidatedList consolidatedList);
 }

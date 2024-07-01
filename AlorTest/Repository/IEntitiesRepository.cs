@@ -1,8 +1,8 @@
-﻿using AlorTest.Repository.DBModels;
+﻿using AlorTest.Model;
 
 namespace AlorTest.Repository;
 
 public interface IEntitiesRepository
 {
-    void AddRangeEntities(Entity[] entities);
+    Task AddRangeEntities(Model.Entity[] dbEntities);
 }

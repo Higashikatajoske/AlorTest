@@ -144,7 +144,7 @@ public class ConsoleService: IConsoleService
                     Console.WriteLine("Файл пуст");
                     return;
                 }
-                _xmlFileService.SaveConsolidatedListToDB(consolidatedList);
+                await _xmlFileService.SaveConsolidatedListToDB(consolidatedList);
             }
             catch
             {

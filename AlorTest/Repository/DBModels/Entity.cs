@@ -9,7 +9,6 @@ public class Entity
     public string UnListType{ get; set; } = null!;
     public string ReferenceNumber { get; set; } = null!;
     public string ListedOn { get; set; } = null!;
-    public string Gender { get; set; } = null!;
     public string NameOriginalScript { get; set; } = null!;
     public string Comments1 { get; set; } = null!;
     public string SortKey { get; set; } = null!;

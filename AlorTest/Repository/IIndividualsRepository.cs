@@ -4,5 +4,5 @@ namespace AlorTest.Repository;
 
 public interface IIndividualsRepository
 {
-    void AddRangeIndividuals(Individual[] individualsArray);
+    Task AddRangeIndividuals(Individual[] individualsArray);
 }
