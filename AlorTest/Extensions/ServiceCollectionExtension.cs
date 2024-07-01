@@ -38,6 +38,9 @@ public static class ServiceCollectionExtension
         serviceCollection.AddScoped<IFileService, FileService>();
         serviceCollection.AddScoped<IConsoleService,  ConsoleService>();
         serviceCollection.AddScoped<IFileRepository, FileRepository>();
+        serviceCollection.AddScoped<IXmlFileService, XmlFileService>();
+        serviceCollection.AddScoped<IEntitiesRepository, EntitiesRepository>();
+        serviceCollection.AddScoped<IIndividualsRepository, IndividualsRepository>();
         return serviceCollection;
     }
 }

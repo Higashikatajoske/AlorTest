@@ -22,6 +22,8 @@ public partial class TestContext : DbContext
     }
 
     public virtual DbSet<DownloadedFile> DownloadedFiles { get; set; }
+    public virtual DbSet<Entity> Entities { get; set; }
+    public virtual DbSet<Individual> Individuals { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

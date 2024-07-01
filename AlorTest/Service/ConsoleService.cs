@@ -12,12 +12,14 @@ public class ConsoleService: IConsoleService
     private readonly IHttpService _httpService;
     private readonly IFileService _fileService;
     private readonly IFileRepository _fileRepository;
+    private readonly IXmlFileService _xmlFileService;
     public ConsoleService(IHttpService httpService, IFileService fileService,
-        IFileRepository fileRepository)
+        IFileRepository fileRepository, IXmlFileService xmlFileService)
     {
         _httpService = httpService;
         _fileService = fileService;
         _fileRepository = fileRepository;
+        _xmlFileService = xmlFileService;
     }
 
     public async Task StartProgram()
@@ -93,6 +95,11 @@ public class ConsoleService: IConsoleService
     {
         Console.WriteLine("Список файлов");
         List<string> fileList = await _fileRepository.GetFileList();
+        if (fileList.Count == 0)
+        {
+            Console.WriteLine("Файлов нет");
+            return;
+        }
 
         foreach (string file in fileList)
         {
@@ -132,6 +139,12 @@ public class ConsoleService: IConsoleService
             {
                 XmlSerializer xmlSerializer = new XmlSerializer(typeof(ConsolidatedList));
                 ConsolidatedList? consolidatedList = xmlSerializer.Deserialize(stream) as ConsolidatedList;
+                if (consolidatedList == null)
+                {
+                    Console.WriteLine("Файл пуст");
+                    return;
+                }
+                _xmlFileService.SaveConsolidatedListToDB(consolidatedList);
             }
             catch
             {

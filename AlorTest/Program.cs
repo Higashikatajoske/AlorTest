@@ -13,5 +13,3 @@ if (app != null)
 {
     await app.StartProgram();
 }
-
-Console.ReadKey();
