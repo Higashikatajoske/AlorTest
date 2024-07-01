@@ -15,6 +15,7 @@ namespace AlorTest.Repository
         public async Task AddRangeIndividuals(Model.Individual[] individualsArray)
         {
             List<DBModels.Individual> dbIndividualList = new List<DBModels.Individual>();
+            List<IndividualTitle> dbIndividualTitleList = new List<IndividualTitle>();
 
             foreach (Model.Individual individual in individualsArray)
             {
@@ -38,8 +39,23 @@ namespace AlorTest.Repository
                 };
 
                 dbIndividualList.Add(dbIndividual);
+                if (individual.Title != null)
+                {
+                    foreach (Value title in individual.Title)
+                    {
+                        IndividualTitle dbIndividualTitle = new IndividualTitle()
+                        {
+                            Title = title.ValueField,
+                            IndividualId = dbIndividual.Id
+                        };
+
+                        dbIndividualTitleList.Add(dbIndividualTitle);
+                    }
+                }
             }
             await _dbContext.AddRangeAsync(dbIndividualList);
+            _dbContext.SaveChanges();
+            await _dbContext.AddRangeAsync(dbIndividualTitleList);
             _dbContext.SaveChanges();
         } 
     }

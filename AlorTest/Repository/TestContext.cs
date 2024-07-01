@@ -25,6 +25,8 @@ public partial class TestContext : DbContext
     public virtual DbSet<Entity> Entities { get; set; }
     public virtual DbSet<Individual> Individuals { get; set; }
 
+    public virtual DbSet<IndividualTitle> IndividualTitles { get; set; }
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<DownloadedFile>(entity =>
@@ -48,6 +50,15 @@ public partial class TestContext : DbContext
         modelBuilder.Entity<Individual>(individual =>
         {
             individual.HasKey(individual => individual.Id);
+        });
+
+        modelBuilder.Entity<IndividualTitle>(individualTitle => 
+        {
+            individualTitle.HasKey(title => title.Id);
+
+            individualTitle
+            .HasOne(title => title.Individual)
+            .WithMany(individual => individual.Titles);
         });
 
         OnModelCreatingPartial(modelBuilder);
