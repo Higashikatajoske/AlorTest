@@ -17,8 +17,8 @@ public partial class TestContext : DbContext
     }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {                                                        
-
+    {
+        optionsBuilder.UseSqlServer("Data Source=DESKTOP-9KQ0FA6\\SQLEXPRESS;Initial Catalog=Test;Integrated Security=True;Trust Server Certificate=True");
     }
 
     public virtual DbSet<DownloadedFile> DownloadedFiles { get; set; }
@@ -38,6 +38,16 @@ public partial class TestContext : DbContext
             entity.Property(e => e.FileType)
                 .HasMaxLength(10)
                 .IsUnicode(false);
+        });
+
+        modelBuilder.Entity<Entity>(entity =>
+        {
+            entity.HasKey(entity => entity.Id);
+        });
+
+        modelBuilder.Entity<Individual>(individual =>
+        {
+            individual.HasKey(individual => individual.Id);
         });
 
         OnModelCreatingPartial(modelBuilder);

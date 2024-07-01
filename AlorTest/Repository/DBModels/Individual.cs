@@ -17,5 +17,4 @@ public class Individual
     public string Comments1 { get; set; } = null!;
     public string SortKey { get; set; } = null!;
     public string SortKeyLastMod { get; set; } = null!;
-    public List<Designation> Designation { get; } = new List<Designation>();
 }
